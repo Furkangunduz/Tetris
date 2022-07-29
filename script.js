@@ -1,7 +1,7 @@
 const canvas = document.getElementById("tetris");
 const score = document.getElementById("score")
-const music = document.getElementById("music")
-music.volume = .05
+const audio = document.getElementById("myaudio");
+audio.volume = .1
 
 const ctx = canvas.getContext("2d")
 const colors = [
@@ -241,6 +241,7 @@ update()
 
 
 document.addEventListener("keydown", (e) => {
+    audio.play()
     if (e.key == "a") {
         playerMove(-1)
     }

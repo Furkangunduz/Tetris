@@ -6,7 +6,9 @@ const rotateRight = document.getElementById("rotate-right")
 const left = document.getElementById("left")
 const right = document.getElementById("right")
 const down = document.getElementById("down")
-let dropIntervalmobile
+let dropIntervalmbl
+let leftIntervalmbl
+let rightIntervalmbl
 
 
 if (isMobile) {
@@ -17,28 +19,42 @@ if (isMobile) {
     score.classList.remove("score-mobile");
 }
 
-rotateLeft.addEventListener("click", () => {
+rotateLeft.addEventListener("touchstart", () => {
     playerRotate(1)
 
 })
-rotateRight.addEventListener("click", () => {
+rotateRight.addEventListener("touchstart", () => {
     playerRotate(-1)
 
 })
-left.addEventListener("click", () => {
-    playerMove(-1)
+left.addEventListener("touchstart", () => {
+    audio.play()
+    leftIntervalmbl = setInterval(() => {
+        playerMove(-1)
+    }, 50)
+})
+left.addEventListener("touchend", () => {
+    clearInterval(leftIntervalmbl)
+})
 
+right.addEventListener("touchstart", () => {
+    audio.play()
+    rightIntervalmbl = setInterval(() => {
+        playerMove(1)
+    }, 50)
 })
-right.addEventListener("click", () => {
-    playerMove(1)
+right.addEventListener("touchend", () => {
+    clearInterval(rightIntervalmbl)
 })
+
 down.addEventListener("touchstart", (e) => {
-    dropIntervalmobile = setInterval(() => {
+    audio.play()
+    dropIntervalmbl = setInterval(() => {
         playerDrop()
     }, 50)
-    console.log(dropIntervalmobile)
+    console.log(dropIntervalmbl)
 })
 down.addEventListener("touchend", (e) => {
-    clearInterval(dropIntervalmobile)
+    clearInterval(dropIntervalmbl)
 })
 
