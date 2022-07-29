@@ -29,9 +29,10 @@ rotateRight.addEventListener("touchstart", () => {
 })
 left.addEventListener("touchstart", () => {
     audio.play()
+    playerMove(-1)
     leftIntervalmbl = setInterval(() => {
         playerMove(-1)
-    }, 50)
+    }, 100)
 })
 left.addEventListener("touchend", () => {
     clearInterval(leftIntervalmbl)
@@ -39,9 +40,10 @@ left.addEventListener("touchend", () => {
 
 right.addEventListener("touchstart", () => {
     audio.play()
+    playerMove(1)
     rightIntervalmbl = setInterval(() => {
         playerMove(1)
-    }, 50)
+    }, 100)
 })
 right.addEventListener("touchend", () => {
     clearInterval(rightIntervalmbl)
@@ -49,9 +51,10 @@ right.addEventListener("touchend", () => {
 
 down.addEventListener("touchstart", (e) => {
     audio.play()
+    playerDrop()
     dropIntervalmbl = setInterval(() => {
         playerDrop()
-    }, 50)
+    }, 100)
     console.log(dropIntervalmbl)
 })
 down.addEventListener("touchend", (e) => {
