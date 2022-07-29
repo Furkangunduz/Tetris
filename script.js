@@ -1,5 +1,6 @@
 const canvas = document.getElementById("tetris");
 const score = document.getElementById("score")
+
 const audio = document.getElementById("myaudio");
 audio.volume = .1
 
